@@ -31,7 +31,7 @@
                     </ul>
                     <!-- Added: Username display at top right -->
                     <span class="navbar-text ms-3">
-                        @(User.Identity.IsAuthenticated ? User.Identity.Name : "Guest")
+                        @ViewBag.UserName
                     </span>
                 </div>
             </div>

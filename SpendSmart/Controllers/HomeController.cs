@@ -1,9 +1,13 @@
-using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SpendSmart.Models;
+using System.Diagnostics;
 
 namespace SpendSmart.Controllers
 {
+
+
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -22,7 +26,7 @@ namespace SpendSmart.Controllers
             var userName = User.Identity?.Name; // Usually the UPN (e.g., user@domain.com)
             var displayName = User.FindFirst("name")?.Value; // Friendly display name
 
-            ViewBag.UserName = displayName ?? userName;
+            ViewBag.UserName = displayName ?? userName?? "not connected";
 
             return View();
         }
