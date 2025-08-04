@@ -1,0 +1,43 @@
+
+# Ignore build output
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.user
+*.suo
+*.vs/
+
+
+# Ignore library files
+lib/
+
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS folders
+.vs/
+.vscode/
+.v17/
+
+# Build and cache
+bin/
+obj/
+*.cache
+*.db
+*.v9.bin
+*.vsdix
+*.dtbcache.v2
+*.futdcache.v2
+
+# Layout and config
+DocumentLayout*.json
+applicationhost.config
+
