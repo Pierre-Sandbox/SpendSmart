@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SpendSmart.Models;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Identity.Web;
+
 
 namespace SpendSmart
 {
@@ -14,6 +17,13 @@ namespace SpendSmart
             builder.Services.AddDbContext<SpendSmartDbContext>(options => 
             options.UseInMemoryDatabase("SpendSmartDb") 
             );
+
+
+
+            // Add services to the container.
+            builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
+
 
             var app = builder.Build();
 
@@ -30,6 +40,7 @@ namespace SpendSmart
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
